@@ -4,3 +4,7 @@ In games where projectiles are fired, launched or thrown by an AI. Having that A
 
 In this simulation I ignored any type of friction caused by wind, this means the only applied force on the bullet is gravity.
 To calculate this trajectory we need multiple pieces.
+
+
+Sources:
+Formulas bullet trajectory: https://sciencing.com/calculate-bullet-trajectory-5185428.html
