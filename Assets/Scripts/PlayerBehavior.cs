@@ -24,6 +24,7 @@ public class PlayerBehavior : MonoBehaviour
     private void Update()
     {
         HandleFireInput();
+        PredictImpactPoint();
     }
 
     void HandleFireInput()
@@ -34,5 +35,10 @@ public class PlayerBehavior : MonoBehaviour
         if (Input.GetAxis("PrimaryFire") > 0.0f)
             _shootingBehavior.PrimaryFire();
 
+    }
+
+    void PredictImpactPoint() 
+    {
+        print("A bullet fired from this position will impact at position: " + _shootingBehavior.GetPredictedImpactPoint().x + ", " + _shootingBehavior.GetPredictedImpactPoint().y + ", " + _shootingBehavior.GetPredictedImpactPoint().z);
     }
 }

@@ -24,4 +24,9 @@ public class ShootingBehavior : MonoBehaviour
             _Gun.Fire();
     }
 
+    public Vector3 GetPredictedImpactPoint() 
+    {
+        return _Gun.GetImpactPoint();
+    }
+
 }
