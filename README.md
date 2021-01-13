@@ -62,10 +62,15 @@ After this I built The basic necessities for a simple shooter.<br/>
 3. A Player object combining the camera with the projectile manager inputs, forming the bridge between UI and play.
 <br/>
 From here on I spent most of my time implementing the formulas for bullet drops and visualizing it.<br/>
-To start I worked on how I could implement the formulas I explained above. Here I noticed that the basic mathemathical implementation of these formulas does not match well with how Unity was built,<br/> so I set out to find an application of this principle using more Unity based concepts.<br/>
-My resulting implementation for how the point is calculated uses the elapsed time since last frame, the constant gravity downwards velocity, the position of the object, and it's forward vector.<br/>
+To start I worked on how I could implement the formulas I explained above. Here I noticed that the basic mathemathical implementation of these formulas does not match well with how Unity was built.
+<br/> 
+<br/> 
+So I set out to find an application of this principle using more Unity based concepts.<br/>
+My resulting implementation for how the point is calculated uses the elapsed time since last frame, the constant gravity downwards velocity, the position of the object, and it's forward vector.
+<br/>
+<br/>
 Applying them into code as follows, sets a point on the line according to the predicted path, creating a nice curve along which the bullet will travel.<br/>
-![Impact calculation function](/Images/CalcPointCode.png)<br/>
+![Impact Calculation](/Images/CalcPointCode.png)<br/>
 
 This will result in a line element with a dotted texture to be drawn along the theoretical archway of the bullet path. as shown on following image.<br/>
 ![Impact Visualisation](/Images/LineExample.png)<br/>
