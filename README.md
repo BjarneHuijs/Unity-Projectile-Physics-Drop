@@ -124,16 +124,17 @@ For AI, this means their accuracy can rise by a solid degree without having too 
 <br/>
 Continuing on the visualisation point of view, it is already regularly used in games where you are supposed to know where the projectile will go.<br/>
 It has many uses, both in arcade games like _Bubble Shooter_, as well as in simulation games with realistic bullet drops like _World of Tanks_, the _Battlefield_ series and more...
-
-**Example Images:**
+<br/>
+<br/>
+**Some example images:**<br/>
 Chart of bullet drop over distance on _Battlefield Bad Company 2_:<br/>
 ![Bullet drop Graph](/Images/BulletDropChartBF.png)<br/><br/>
 Prediction line of orb path in _Bubble Shooter_:<br/>
 ![Bubble Shooter img](/Images/BubbleShooterPrediciton.png)<br/><br/>
 
-![Bullet drop Graph](/Images/BulletDropChartBF.png)<br/><br/>
 ## Sources:
 <br/>
 Formulas and basic explanation for calculating a bullet trajectory: https://sciencing.com/calculate-bullet-trajectory-5185428.html<br/>
 Reference for parts of implementation of Bullet trajectory: https://www.omnicalculator.com/physics/trajectory-projectile-motion<br/>
 FreeCam source reference: https://gist.github.com/ashleydavis/f025c03a9221bc840a2b<br/>
+_BattleField bad company 2_ chart reference: https://battlefield.fandom.com/wiki/Projectile_mechanics?file=BFBC2_Bullet_Drop.png
