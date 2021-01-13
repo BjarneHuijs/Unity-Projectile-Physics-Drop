@@ -71,6 +71,9 @@ My resulting implementation for how the point is calculated uses the elapsed tim
 <br/>
 Applying them into follo code, sets a point on the line according to the predicted path, creating a nice curve along which the bullet will travel.<br/>
 ``` 
+	
+	
+	
 	void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
 	{
 		int numSteps = 50;
