@@ -72,42 +72,42 @@ My resulting implementation for how the point is calculated uses the elapsed tim
 Applying them into follo code, sets a point on the line according to the predicted path, creating a nice curve along which the bullet will travel.<br/>
 ```
 void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
-    {
-        int numSteps = 50; // for example
-        float timeDelta = 1.0f / initialVelocity.magnitude; // for example
+{
+	int numSteps = 50; // for example
+	float timeDelta = 1.0f / initialVelocity.magnitude; // for example
 
-        LineRenderer lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.positionCount = numSteps;
+	LineRenderer lineRenderer = GetComponent<LineRenderer>();
+	lineRenderer.positionCount = numSteps;
 
-        Vector3 position = initialPosition;
-        Vector3 velocity = initialVelocity;
+	Vector3 position = initialPosition;
+	Vector3 velocity = initialVelocity;
 
-        for (int i = 0; i < numSteps; ++i)
-        {
-            if (WallDetection(position, velocity))
-            {
-                //print(transform.Find("Target").gameObject.name);
-                //print(transform.Find("Target").position);
-                transform.Find("Target").transform.position = _impactPoint;
-                print("found impact point at " + _impactPoint.x + ", " + _impactPoint.y + _impactPoint.z + ", ");
-                lineRenderer.positionCount = i;
-                break;
-            }
-            else
-            {
-                // Set point to void if no hit found
-                transform.Find("Target").position = new Vector3(-999f, -999f, -999f);
-            }
+	for (int i = 0; i < numSteps; ++i)
+	{
+		if (WallDetection(position, velocity))
+		{
+			//print(transform.Find("Target").gameObject.name);
+			//print(transform.Find("Target").position);
+			transform.Find("Target").transform.position = _impactPoint;
+			print("found impact point at " + _impactPoint.x + ", " + _impactPoint.y + _impactPoint.z + ", ");
+			lineRenderer.positionCount = i;
+			break;
+		}
+		else
+		{
+			// Set point to void if no hit found
+			transform.Find("Target").position = new Vector3(-999f, -999f, -999f);
+		}
 
-            lineRenderer.SetPosition(i, position);
+		lineRenderer.SetPosition(i, position);
 
-            // Calculate next position using the the current velocity, position, and time since last calculation
-            position += velocity * timeDelta + 0.5f * gravity * timeDelta * timeDelta; 
-            //Gives the trail it's downward arc influenced by gravity, higher speed == longer and flatter arc
-            velocity += gravity * timeDelta; 
+		// Calculate next position using the the current velocity, position, and time since last calculation
+		position += velocity * timeDelta + 0.5f * gravity * timeDelta * timeDelta; 
+		//Gives the trail it's downward arc influenced by gravity, higher speed == longer and flatter arc
+		velocity += gravity * timeDelta; 
 
-        }
-    }
+	}
+}
 ```
 
 This will result in a line element with a dotted texture to be drawn along the theoretical archway of the bullet path. as shown on following image.<br/>
