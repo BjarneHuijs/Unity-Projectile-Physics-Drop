@@ -105,8 +105,7 @@ Applying them into follo code, sets a point on the line according to the predict
 			//Gives the trail it's downward arc influenced by gravity, higher speed == longer and flatter arc
 			velocity += gravity * timeDelta; 
 		}
-	}
- ```
+	} ```
 
 <br/>
 This will result in a line element with a dotted texture to be drawn along the theoretical archway of the bullet path. as shown on following image.<br/>
