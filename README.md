@@ -71,9 +71,7 @@ My resulting implementation for how the point is calculated uses the elapsed tim
   
 Applying them into follo code, sets a point on the line according to the predicted path, creating a nice curve along which the bullet will travel.  
 ``` 
-	
-	
-	
+
 	void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
 	{
 		int numSteps = 50;
@@ -108,7 +106,8 @@ Applying them into follo code, sets a point on the line according to the predict
 			//Gives the trail it's downward arc influenced by gravity, higher speed == longer and flatter arc
 			velocity += gravity * timeDelta; 
 		}
-	} ```
+	} 
+```
 
   
 This will result in a line element with a dotted texture to be drawn along the theoretical archway of the bullet path. as shown on following image.  
