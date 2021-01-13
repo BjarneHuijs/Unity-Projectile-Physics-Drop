@@ -1,6 +1,6 @@
 # Unity Projectile Physics drop simulation.
 
-##Introduction:
+## Introduction:
 <br/>
 My first idea was to implement a simple machine learning AI built using the ML-Agents library which is available on the unity framework. This is a framework that will train the AI according to certain parameters you pass as positive or negative influences.
 I wanted to do this as machine learning to me is a very interesting subject where once you create the base for the AI to build on, you can see it grow generation by generation.
@@ -18,7 +18,7 @@ Your mouse movement controls the looking direction and a bullet is fired using t
 
 I visualized the trajectory using a drawn dotted line and an opaque sphere will signify the impact point if any is present.
 
-<h2/>The Math explained:
+## The Math explained:
 <br/>
 Before I can go into how I simulated the bullet drop I will explain in short the basic math required for this implementation.
 <br/>
@@ -50,7 +50,7 @@ For this we use the Y-displacement formula:<br/>
 ![Bullet travel distance formula Example](/Images/Example.png)<br/>
 
 
-##My implementation of this math into a 3d simulated space.
+## My implementation of this math into a 3d simulated space.
 <br/>
 I begun with a basic 1st person FreeCam of which I found the basis online (See sources). From there on I built a small level that would properly be able to show the prediction from multiple looking angles and heights.<br/>
 ![Level Image](/Images/Level.png)<br/>
@@ -74,7 +74,7 @@ The small sphere shows the impact point which can be retrieved for any needed be
 
 
 
-##Sources:
+## Sources:
 <br/>
 Formulas and basic explanation for calculating a bullet trajectory: https://sciencing.com/calculate-bullet-trajectory-5185428.html<br/>
 Reference for parts of implementation of Bullet trajectory: https://www.omnicalculator.com/physics/trajectory-projectile-motion<br/>
