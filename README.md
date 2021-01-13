@@ -1,6 +1,7 @@
 # Unity Projectile Physics drop simulation.
 
-##Introduction:<br/>
+##Introduction:
+<br/>
 My first idea was to implement a simple machine learning AI built using the ML-Agents library which is available on the unity framework. This is a framework that will train the AI according to certain parameters you pass as positive or negative influences.
 I wanted to do this as machine learning to me is a very interesting subject where once you create the base for the AI to build on, you can see it grow generation by generation.
 
@@ -17,7 +18,8 @@ Your mouse movement controls the looking direction and a bullet is fired using t
 
 I visualized the trajectory using a drawn dotted line and an opaque sphere will signify the impact point if any is present.
 
-##The Math explained:<br/>
+##The Math explained:
+<br/>
 Before I can go into how I simulated the bullet drop I will explain in short the basic math required for this implementation.
 <br/>
 To start off, we need a formula that can tell us how far the bullet will travel before hitting the ground.<br/> This means our forward velocity _v0x_ and our total travel time _t_ will determine this value, resulting in following formula<br/>
@@ -48,7 +50,8 @@ For this we use the Y-displacement formula:<br/>
 ![Bullet travel distance formula Example](/Images/Example.png)<br/>
 
 
-##My implementation of this math into a 3d simulated space.<br/>
+##My implementation of this math into a 3d simulated space.
+<br/>
 I begun with a basic 1st person FreeCam of which I found the basis online (See sources). From there on I built a small level that would properly be able to show the prediction from multiple looking angles and heights.<br/>
 ![Level Image](/Images/Level.png)<br/>
 
@@ -64,10 +67,15 @@ My resulting implementation for how the point is calculated uses the elapsed tim
 Applying them into code as follows, sets a point on the line according to the predicted path, creating a nice curve along which the bullet will travel.<br/>
 ![Impact calculation function](/Images/CalcPointCode.png)<br/>
 
-This will result in a line element with a dotted texture to be drawn along the theoretical archway of the bullet path. as show on following image.<br/>
+This will result in a line element with a dotted texture to be drawn along the theoretical archway of the bullet path. as shown on following image.<br/>
 ![Impact Visualisation](/Images/LineExample.png)<br/>
 
+The small sphere shows the impact point which can be retrieved for any needed behavior calculations later on in the loop.
+
+
+
 ##Sources:
+<br/>
 Formulas and basic explanation for calculating a bullet trajectory: https://sciencing.com/calculate-bullet-trajectory-5185428.html<br/>
 Reference for parts of implementation of Bullet trajectory: https://www.omnicalculator.com/physics/trajectory-projectile-motion<br/>
 FreeCam source reference: https://gist.github.com/ashleydavis/f025c03a9221bc840a2b<br/>
