@@ -70,8 +70,7 @@ My resulting implementation for how the point is calculated uses the elapsed tim
 <br/>
 <br/>
 Applying them into follo code, sets a point on the line according to the predicted path, creating a nice curve along which the bullet will travel.<br/>
-```csharp
-
+```
 void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
     {
         int numSteps = 50; // for example
@@ -109,7 +108,6 @@ void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 
 
         }
     }
-	
 ```
 
 This will result in a line element with a dotted texture to be drawn along the theoretical archway of the bullet path. as shown on following image.<br/>
