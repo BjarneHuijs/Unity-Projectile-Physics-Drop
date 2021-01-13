@@ -18,7 +18,7 @@ Your mouse movement controls the looking direction and a bullet is fired using t
 
 I visualized the trajectory using a drawn dotted line and an opaque sphere will signify the impact point if any is present.
 
-##The Math explained:
+<h2>The Math explained:<h2/>
 <br/>
 Before I can go into how I simulated the bullet drop I will explain in short the basic math required for this implementation.
 <br/>
