@@ -1,6 +1,10 @@
 # Unity Projectile Physics drop simulation.
 
-**Introduction:**
+##Introduction:<br/>
+My first idea was to implement a simple machine learning AI built using the ML-Agents library which is available on the unity framework. This is a framework that will train the AI according to certain parameters you pass as positive or negative influences.
+I wanted to do this as machine learning to me is a very interesting subject where once you create the base for the AI to build on, you can see it grow generation by generation.
+
+
 
 In games where projectiles are fired, launched or thrown by an AI. Having that AI be able to calculate or predict where the projectile will fall can be essential to have the AI function in a manner that is wanted by the developer.
 For this implementation I Focused around bullets as they are the simplest and easiest to calculate and visualize.
@@ -13,10 +17,9 @@ Your mouse movement controls the looking direction and a bullet is fired using t
 
 I visualized the trajectory using a drawn dotted line and an opaque sphere will signify the impact point if any is present.
 
-Now lets get into the interesting stuff:
-
-**The Math explained:**
-
+##The Math explained:<br/>
+Before I can go into how I simulated the bullet drop I will explain in short the basic math required for this implementation.
+<br/>
 To start off, we need a formula that can tell us how far the bullet will travel before hitting the ground.<br/> This means our forward velocity _v0x_ and our total travel time _t_ will determine this value, resulting in following formula<br/>
 ![Core travel distance formula](/Images/BasicTravelDistance.png)<br/>
 But this formula has an issue, we do not at the start know our travelled time _(t)_. This means that even if we know our starting height_(h)_ and velocity_(v0x)_, we will first have to calculate the time the bullet travels.
@@ -24,16 +27,18 @@ But this formula has an issue, we do not at the start know our travelled time _(
 1. To calculate the travelled time we start by calculating the y-component displacement, or the distance it will drop down before it hits a wall or the ground.<br/>
 For this we use the Y-displacement formula:<br/>
 ![Y Displacement formula](/Images/yDisplacement.png)<br/>
-	* The _(v0y)_ value stands for initial y velocity, this is important in case the bullet is not fired straight forward, as this bullet would possibly first travel upwards or downwards which would greatly impact the shape of our trajectory arc. <br/>Luckily the Unity framework makes this a lot easier as many of the vectors we would have to calculate are kept as standard variables inside of an object.
+	* The _(v0y)_ value stands for initial y velocity
+		* This value is important in case the bullet is not fired straight forward,<br/> as said bullet would possibly first travel upwards or downwards which would greatly impact the shape of our trajectory arc. 
+		* Luckily the Unity framework makes this a lot easier as many of the vectors we would have to calculate are kept as standard variables inside of an object.
 	* For this example I will use a bullet fired straight forward from here onwards.
 
-2. We can reform the formula to a form incorporating our starting height since when we shoot straight forward, its a standard forward vector at height _h_.<br/>
+2. We can reform the formula to a new form incorporating our starting height since when we shoot straight forward, its a standard forward vector at height _h_.<br/>
 ![Reformed Y Displacement formula](/Images/NewYDisplacement.png)<br/>
 
 3. From here we can rearrange to formula to solve for our total time the bullet is underway: <br/>
 ![Bullet travel time formula](/Images/TimeTravelled.png)<br/>
 
-4. Now that we know our formula for travelled time, we can plug this into our basic distance function and remove the _t_ from it.<br/>
+4. Now that we know our formula for travelled time, we replace the _t_ with it.<br/>
 ![Bullet travel distance formula](/Images/BulletTravelDistance.png)<br/>
 	* The _(v0x)_ represents the start velocity (In this formula we are mainly interested in the X-value since the Y-value was incorporated into the time travelled _t_)
 	* The starting height is represented by _(h)_
@@ -43,6 +48,26 @@ For this we use the Y-displacement formula:<br/>
 ![Bullet travel distance formula Example](/Images/Example.png)<br/>
 
 
-Sources:
-Formulas and basic explanation for calculating a bullet trajectory: https://sciencing.com/calculate-bullet-trajectory-5185428.html
-Reference for parts of implementation of Bullet trajectory: https://www.omnicalculator.com/physics/trajectory-projectile-motion
+##My implementation of this math into a 3d simulated space.<br/>
+I begun with a basic 1st person FreeCam of which I found the basis online (See sources). From there on I built a small level that would properly be able to show the prediction from multiple looking angles and heights.<br/>
+![Level Image](/Images/Level.png)<br/>
+
+After this I built The basic necessities for a simple shooter.<br/>
+1. A projectile which is only influenced by it's starting velocity and gravity
+2. A projectile manager which spawns and fires the bullets
+	2.1 In here the prediction calculations are done as well
+3. A Player object combining the camera with the projectile manager inputs, forming the bridge between UI and play.
+<br/>
+From here on I spent most of my time implementing the formulas for bullet drops and visualizing it.<br/>
+To start I worked on how I could implement the formulas I explained above. Here I noticed that the basic mathemathical implementation of these formulas does not match well with how Unity was built,<br/> so I set out to find an application of this principle using more Unity based concepts.<br/>
+My resulting implementation for how the point is calculated uses the elapsed time since last frame, the constant gravity downwards velocity, the position of the object, and it's forward vector.<br/>
+Applying them into code as follows, sets a point on the line according to the predicted path, creating a nice curve along which the bullet will travel.<br/>
+![Impact calculation function](/Images/CalcPointCode.png)<br/>
+
+This will result in a line element with a dotted texture to be drawn along the theoretical archway of the bullet path. as show on following image.<br/>
+![Impact Visualisation](/Images/LineExample.png)<br/>
+
+##Sources:
+Formulas and basic explanation for calculating a bullet trajectory: https://sciencing.com/calculate-bullet-trajectory-5185428.html<br/>
+Reference for parts of implementation of Bullet trajectory: https://www.omnicalculator.com/physics/trajectory-projectile-motion<br/>
+FreeCam source reference: https://gist.github.com/ashleydavis/f025c03a9221bc840a2b<br/>

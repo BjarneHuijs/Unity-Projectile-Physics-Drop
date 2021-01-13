@@ -72,13 +72,12 @@ public class ProjectileManager : MonoBehaviour
         Vector3 position = initialPosition;
         Vector3 velocity = initialVelocity;
 
-
         for (int i = 0; i < numSteps; ++i)
         {
             if (WallDetection(position, velocity))
             {
-                print(transform.Find("Target").gameObject.name);
-                print(transform.Find("Target").position);
+                //print(transform.Find("Target").gameObject.name);
+                //print(transform.Find("Target").position);
                 transform.Find("Target").transform.position = _impactPoint;
                 print("found impact point at " + _impactPoint.x + ", " + _impactPoint.y + _impactPoint.z + ", ");
                 lineRenderer.positionCount = i;
@@ -86,16 +85,14 @@ public class ProjectileManager : MonoBehaviour
             }
             else
             {
+                // Set point to void if no hit found
                 transform.Find("Target").position = new Vector3(-999f, -999f, -999f);
             }
 
-
             lineRenderer.SetPosition(i, position);
-
 
             // Calculate next position using the the current velocity, position, and time since last calculation
             position += velocity * timeDelta + 0.5f * gravity * timeDelta * timeDelta; 
-            
             //Gives the trail it's downward arc influenced by gravity, higher speed == longer and flatter arc
             velocity += gravity * timeDelta; 
 
