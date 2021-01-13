@@ -71,6 +71,7 @@ My resulting implementation for how the point is calculated uses the elapsed tim
 <br/>
 Applying them into follo code, sets a point on the line according to the predicted path, creating a nice curve along which the bullet will travel.<br/>
 ```csharp
+
 void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
     {
         int numSteps = 50; // for example
@@ -108,6 +109,7 @@ void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity, Vector3 
 
         }
     }
+	
 ```
 
 This will result in a line element with a dotted texture to be drawn along the theoretical archway of the bullet path. as shown on following image.<br/>
@@ -124,9 +126,13 @@ For AI, this means their accuracy can rise by a solid degree without having too 
 Continuing on the visualisation point of view, it is already regularly used in games where you are supposed to know where the projectile will go.<br/>
 It has many uses, both in arcade games like _Bubble Shooter_, as well as in simulation games with realistic bullet drops like _World of Tanks_, the _Battlefield_ series and more...
 
-Example Images:
-![Bullet drop Graph](/Images/BulletDropChartBF.png)<br/>
+**Example Images:**
+Chart of bullet drop over distance on _Battlefield Bad Company 2_:<br/>
+![Bullet drop Graph](/Images/BulletDropChartBF.png)<br/><br/>
+Prediction line of orb path in _Bubble Shooter_:<br/>
+![Bubble Shooter img](/Images/BubbleShooterPrediciton.png)<br/><br/>
 
+![Bullet drop Graph](/Images/BulletDropChartBF.png)<br/><br/>
 ## Sources:
 <br/>
 Formulas and basic explanation for calculating a bullet trajectory: https://sciencing.com/calculate-bullet-trajectory-5185428.html<br/>
