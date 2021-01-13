@@ -72,7 +72,17 @@ This will result in a line element with a dotted texture to be drawn along the t
 
 The small sphere shows the impact point which can be retrieved for any needed behavior calculations later on in the loop.
 
+## Uses and examples:
+<br/>
+A path prediction for hpysics objects is useful for both players and AI alike, it allows them to make better decisions by visualising approximately where the object will land/impact.<br/>
+For AI, this means their accuracy can rise by a solid degree without having too much impact on resources.
+<br/>
+<br/>
+Continuing on the visualisation point of view, it is already regularly used in games where you are supposed to know where the projectile will go.<br/>
+It has many uses, both in arcade games like _Bubble Shooter_, as well as in simulation games with realistic bullet drops like _World of Tanks_, the _Battlefield_ series and more...
 
+Example Images:
+![Bullet drop Graph](/Images/BulletDropChartBF.png)<br/>
 
 ## Sources:
 <br/>
