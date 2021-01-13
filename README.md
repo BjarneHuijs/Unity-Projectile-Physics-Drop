@@ -71,7 +71,9 @@ My resulting implementation for how the point is calculated uses the elapsed tim
 <br/>
 Applying them into follo code, sets a point on the line according to the predicted path, creating a nice curve along which the bullet will travel.<br/>
 ![Impact Calculation](/Images/ImpactCalculation.png)<br/>
-
+```
+ahfgahjf
+```
 <br/>
 This will result in a line element with a dotted texture to be drawn along the theoretical archway of the bullet path. as shown on following image.<br/>
 ![Impact Visualisation](/Images/LineExample.png)<br/>
