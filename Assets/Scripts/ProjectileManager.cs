@@ -92,8 +92,12 @@ public class ProjectileManager : MonoBehaviour
 
             lineRenderer.SetPosition(i, position);
 
-            position += velocity * timeDelta + 0.5f * gravity * timeDelta * timeDelta;
-            velocity += gravity * timeDelta;
+
+            // Calculate next position using the the current velocity, position, and time since last calculation
+            position += velocity * timeDelta + 0.5f * gravity * timeDelta * timeDelta; 
+            
+            //Gives the trail it's downward arc influenced by gravity, higher speed == longer and flatter arc
+            velocity += gravity * timeDelta; 
 
         }
     }
