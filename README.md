@@ -37,7 +37,7 @@ For this we use the Y-displacement formula:
 2. We can reform the formula to a new form incorporating our starting height since when we shoot straight forward, its a standard forward vector at height _h_.  
 ![Reformed Y Displacement formula](/Images/NewYDisplacement.png)  
 
-3. From here we can rearrange to formula to solve for our total time the bullet is underway:
+3. From here we can rearrange to formula to solve for our total time the bullet is underway:  
 ![Bullet travel time formula](/Images/TimeTravelled.png)  
 
 4. Now that we know our formula for travelled time, we replace the _t_ with it.  
